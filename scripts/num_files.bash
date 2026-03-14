@@ -5,13 +5,13 @@
 echo "Enter a number:"
 read num_files
 
-current_num_files=$(ls -p | grep -v / | wc -l)
+current_num_files=$(ls -p | grep -cv /)
 echo "Number of files in current directory: $current_num_files"
 
-if (($current_num_files >= $num_files)); then
+if ((current_num_files >= num_files)); then
   echo "There are more or equal number of file than $num_files"
 else
   echo "There are NOT as many files as $num_files"
 fi
 
-echo "Script finished on `date`"
+echo "Script finished on $(date)"
