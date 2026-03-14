@@ -4,7 +4,7 @@
 
 echo "What is your company name?"
 echo ""
-read input_name
+read -r input_name
 echo "Your company is $input_name"
-var_hostname=`hostname`
-echo "Script completed in machine: $var_hostname on `date`"
+var_hostname=$(hostname)
+echo "Script completed in machine: $var_hostname on $(date)"
