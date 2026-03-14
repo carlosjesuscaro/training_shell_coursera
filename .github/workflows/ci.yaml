@@ -1,0 +1,33 @@
+name: Bash Script Validator
+
+# This tells GitHub to run this check every time you push code
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  check-syntax:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download repository code
+        uses: actions/checkout@v4
+
+      - name: Check basic Bash syntax (bash -n)
+        # This finds all files ending in .sh and checks their structure without running them
+        run: |
+          echo "Checking basic syntax for all .sh files..."
+          for script in $(find ./scripts/ -type f -name "*.bash"); do
+            echo "Checking $script..."
+            bash -n "$script"
+          done
+
+      - name: Run advanced ShellCheck Linting
+        # ShellCheck is incredibly smart and comes pre-installed on GitHub runners
+        run: |
+          echo "Running ShellCheck..."
+          for script in $(find ./scripts/ -type f -name "*.bash"); do
+            shellcheck "$script"
+          done
