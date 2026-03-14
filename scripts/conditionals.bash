@@ -32,7 +32,7 @@ echo "1 - Current date and time"
 echo "2 - Number of directories in the current folder"
 echo "3 - Run hello script"
 
-read response
+read -r response
 
 case $response in
 1) date;;

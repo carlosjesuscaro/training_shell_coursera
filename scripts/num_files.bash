@@ -3,9 +3,10 @@
 # Returning whether there are more files in the directory than the number entered by the user
 
 echo "Enter a number:"
-read num_files
+read -r num_files
 
-current_num_files=$(ls -p | grep -cv /)
+#current_num_files=$(ls -p | grep -cv /)
+current_num_files=$(find . -maxdepth 1 -type f | wc -l)
 echo "Number of files in current directory: $current_num_files"
 
 if ((current_num_files >= num_files)); then
