@@ -3,7 +3,7 @@
 # Date: March 8, 2026
 
 echo "Enter a number between 1 and 50"
-read number
+read -r number
 
 if ((number >= 1 && number <= 50)); then
   for ((x=number; x<=50; x++))
@@ -36,7 +36,7 @@ read -r response
 
 case $response in
 1) date;;
-2) tmp=$(ls -p | grep / | wc -l) && echo "There are $tmp folders";;
+2) tmp=$(find . -maxdepth 1 -type d | wc -l) && echo "There are $tmp folders";;
 3) ./hello.bash;;
 *) echo "Wrong choice"
 esac
