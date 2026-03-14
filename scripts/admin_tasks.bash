@@ -3,7 +3,7 @@
 # Purpose: Run admin linux commands
 # Date: March 8, 2026
 
-today=`date`
+today=$(date)
 company="MachineX"
 
 top | head -10
