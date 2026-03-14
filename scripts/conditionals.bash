@@ -17,7 +17,27 @@ fi
 # Checking if a file exist
 
 if [ -e test.txt ]; then
+  echo ""
   echo "The test file exist!"
 else
+  echo ""
   echo "It does not exist"
 fi
+
+# Case conditioning
+echo ""
+echo "Enter one of the following options:"
+echo ""
+echo "1 - Current date and time"
+echo "2 - Number of directories in the current folder"
+echo "3 - Run hello script"
+
+read response
+
+case $response in
+1) date;;
+2) tmp=$(ls -p | grep / | wc -l) && echo "There are $tmp folders";;
+3) ./hello.bash;;
+*) echo "Wrong choice"
+esac
+
