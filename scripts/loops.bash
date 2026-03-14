@@ -4,7 +4,7 @@
 
 for x in {1..20}
   do
-    echo $x
+    echo "$x"
   done
 
 # do while examples
