@@ -14,8 +14,8 @@ echo "Total arguments (\$#): $#"
 echo "First argument (\$1): $1"
 echo "Second argument (\$2): $2"
 
-# $@ represents all arguments as a list
-echo "All arguments (\$@): $@"
+# $* represents all arguments joined as a single string
+echo "All arguments (\$*): $*"
 
 echo "----------------------------------"
 
