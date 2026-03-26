@@ -66,6 +66,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: <<-SHELL
     echo "Updating system packages"
     dnf update -y
+    dnf install wget -y
     echo "System updated!"
   SHELL
 end
